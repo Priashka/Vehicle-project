@@ -25,4 +25,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Start the application using Gunicorn (production server)
-CMD python manage.py migrate && gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
+CMD python manage.py migrate && python create_admin.py && gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
